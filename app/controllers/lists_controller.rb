@@ -1,10 +1,10 @@
 class ListsController < ApplicationController
   def new
-    @list=List.new
+    @list = List.new
   end
 
   def create
-    @list =List.new(list_params)
+    @list = List.new(list_params)
     if @list.save
       redirect_to list_path(@list.id)
     else
@@ -13,11 +13,11 @@ class ListsController < ApplicationController
   end
 
   def index
-    @lists =List.all
+    @lists = List.all
   end
 
   def show
-    @list =List.find(params[:id])
+    @list = List.find(params[:id])
   end
 
   def edit
@@ -25,13 +25,13 @@ class ListsController < ApplicationController
   end
 
   def update
-    list =List.find(params[:id])
+    list = List.find(params[:id])
     list.update(list_params)
     redirect_to list_path(list.id)
   end
 
   def destroy
-    list =List.find(params[:id])
+    list = List.find(params[:id])
     list.destroy
     redirect_to '/lists'
   end
@@ -41,5 +41,4 @@ class ListsController < ApplicationController
   def list_params
     params.require(:list).permit(:title, :body, :image)
   end
-
 end
