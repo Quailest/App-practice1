@@ -1,1 +1,14 @@
-<h1>new</h1>
+<h1>New List</h1>
+
+<%= form_with model: @list,url: '/lists', method: :patch, local:true do |f| %>
+  <h4>タイトル</h4>
+  <%= f.text_field :title %>
+
+  <h4>本文</h4>
+  <%= f.text_field :body %>
+
+  <h4></h4>
+  <%= f.file_field :image, accept: 'image/' %>
+
+  <%= f.submit '保存' %>
+<% end %>
